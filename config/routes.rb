@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  get 'welcome/index'
+
+	get 'menu' => 'home#menu'
+	get 'contact_us' => 'home#contact_us'
 
 	root 'welcome#index'
 end
