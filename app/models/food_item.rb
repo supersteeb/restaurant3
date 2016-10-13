@@ -1,5 +1,8 @@
 class FoodItem < ApplicationRecord
+	has_many :orders, dependent: :destroy
+
   belongs_to :section
+
   def image_url_or_default
   	if image_url.present?
   		image_url

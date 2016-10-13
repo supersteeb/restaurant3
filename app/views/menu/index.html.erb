@@ -15,7 +15,11 @@
 				<div class="card">
 				  <%= image_tag food_item.image_url_or_default, alt: food_item.name %>
 				  <div class="card-block">
-				    <h4 class="card-title"><%= food_item.name %></h4>
+				    <h4 class="card-title">
+				    	<%= food_item.name %>
+				    			  <!-- to display order cart or whatever -->
+			  			<span class="tag tag-default"><%= food_item.orders.size %></span>
+			 			</h4>
 				    <p class="card-text"><%= food_item.description %></p>
 				  </div>
 				  <div class="card-block">
