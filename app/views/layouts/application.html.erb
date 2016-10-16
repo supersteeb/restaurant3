@@ -21,6 +21,9 @@
 			      <%= link_to 'Contact us', contact_us_path, class: 'nav-link' %>
 			    </li>
 			    <li class="nav-item pull-xs-right" >
+			    	<% if current_order == nil %>
+			    	<% else %>
+			    	
 			    <%= current_order.order_food_items.size %> items in your cart. 
 			    	<%= link_to 'Check Out', checkout_path, class: 'btn btn-primary btn-sm' %> <!-- Would take you to checkout page in which you can view cart... so. order food_items. show? -->
 			    </li>

@@ -8,6 +8,9 @@
 
 #from vtoan
 
+Order.create(name: "Alecks", phone: "312342", address: "123 Fake Street")
+
+=begin
 breakfast = Section.create(name: 'Breakfast', count: 0)
 lunch = Section.create(name: 'Lunch', count: 0)
 dinner = Section.create(name: 'Dinner', count: 0)
@@ -42,6 +45,7 @@ drinks = Section.create(name: 'Drinks', count: 0)
                       cuisine: Faker::Address.country,
                       image_url: Faker::Placeholdit.image("320x240", 'jpg'))
 end
+=end
 
 
 
