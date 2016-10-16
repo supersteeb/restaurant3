@@ -1,0 +1,66 @@
+<h1>Menu</h1>
+<form class="form-inline">
+ <div class="form-group">
+  <ul class="nav nav-pills">
+ <% Section.each do |section| %>
+   <li class="nav-item">
+     <%= link_to section, menu_path(section: section), class: "nav-link #{params[:section] == section && 'active'}" %>
+ <% end %>
+   </li>
+</ul>
+ </div>
+ <div class="form-group">
+   <div class="btn-group">
+ <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+   Action
+ </button>
+ <div class="dropdown-menu">
+   <% @sections.each do |section| %>
+   <%=link_to "#{section} Sort By",menu_path(:sort_param => "name",section: section),class: "dropdown-item"%>
+   <%end%>
+   <% ['price'].each do |column| %>
+   <%=link_to "Sort by #{column} ASC",menu_path(:sort_param => "price DESC"),class: "dropdown-item"%>
+   <%=link_to "Sort by #{column} DESC",menu_path(:sort_param => "price ASC"),class: "dropdown-item"%>
+   <%end%>
+   <div class="dropdown-divider"></div>
+    <% @cuisines.each do |cuisine| %>
+   <a class="dropdown-item" href="#"><%= link_to cuisine,menu_path(cuisine: cuisine) %></a>
+   <%end%>
+ </div>
+</div>
+   <form class="form-inline pull-xs-right">
+     <input class="form-control" type="text" placeholder="Search">
+     <button class="btn btn-success-outline" type="submit">Search</button>
+   </form>
+   </div>
+</form>
+ <div class="card-deck-wrapper">
+   <% @food_items.in_groups_of(3, false) do |row| %>
+   <div class="card-deck">
+   <% row.each do |food_item| %>
+     <div class="card">
+     <%= image_tag food_item.image_url_or_auto,size: "415x300"%>
+       <div class="card-block">
+         <h4 class="card-title"><%= link_to food_item.name, food_item_path(food_item)%></h4>
+         <p class="card-text"><%= food_item.description %></p>
+         <p class="card-text">
+           <span class="label label-info total-count">
+             View Counts:<%= food_item.impressions_count %>
+            </span>
+         </p>
+       </div>
+          <div class="card-footer text-muted">
+           <span class="label label-info total-count">
+             <%= number_to_currency food_item.price %>
+            </span>
+          <%= link_to 'Order Now', new_order_path(id: food_item.id), class: 'btn btn-primary' %>
+         </div>
+   </div>
+     <% end %>
+ </div>
+<% end %>
+</div>
+
+<script>
+$('.dropdown-toggle').dropdown()
+</script>`

@@ -3,9 +3,32 @@
 <ul class="nav nav-pills">
 	<% Section.all.each do |section| %>
 	  <li class="nav-item">
+
 	    <%= link_to section.name, menu_path(section: section.name), class: "nav-link #{'active' if params[:section] == section.name}" %>
+
 	  </li>
   <% end %>
+</ul>
+
+<div class="card card-block" >
+	<%= form_tag nil, method: 'get' do %>
+	<%= hidden_field_tag :section, params[:section] %>
+	<div class="form-inline">
+		<%= select_tag :sort_column, options_for_select([['Name', 'name'],['Price', 'price']]), class: 'form-control' %>
+		<%= select_tag :sort_direction, options_for_select([['Ascending', 'asc'], ['Descending', 'desc']]), class: "form-control" %>
+		<%= submit_tag "Sort", class: "btn btn-secondary" %>
+</div>
+	<% end %>
+</div>
+
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <%= link_to "Name", :sort => 'name' %>
+  </li>
+  <li class="nav-item">
+    <%= link_to "Price", :sort => 'price' %>
+  </li>
+<%#  <%= hidden_field :section, params[:section] %>  <%# how the fuck do you do this? <%# %> 
 </ul>
 
 <% @food_items.in_groups_of(3) do |group| %>
@@ -18,7 +41,7 @@
 				    <h4 class="card-title">
 				    	<%= food_item.name %>
 				    			  <!-- to display order cart or whatever -->
-			  			<span class="tag tag-default"><%= food_item.orders.size %></span>
+			  			<span class="tag tag-info"><%= food_item.orders.size %></span>
 			 			</h4>
 				    <p class="card-text"><%= food_item.description %></p>
 				  </div>
@@ -31,6 +54,7 @@
 	</div>
 <% end %>
 
+<% if false %>
 <!---
 <% if @section %>
 	<% @section.food_items.each do |food| %>
@@ -40,3 +64,5 @@
 <% end %>
 =end
 -->
+<% end %>
+

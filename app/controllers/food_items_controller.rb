@@ -5,6 +5,10 @@ class FoodItemsController < ApplicationController
   # GET /food_items.json
   def index
     @food_items = FoodItem.all
+
+    if params[:search]
+      redirect_to menu_path
+    end
   end
 
   # GET /food_items/1

@@ -10,4 +10,18 @@ class FoodItem < ApplicationRecord
   		 "http://loremflickr.com/320/240/#{CGI.escape name}"
   	end
   end
+
+  def self.search(search)
+    where("name ILIKE ?", "%#{search}%").or(where("description ILIKE ?", "%#{search}%")) #.or(where("section.name ILIKE ?", "%#{search}%"))) <= to also find section name string under food items... is it
+  end
 end
+
+=begin
+	
+Oct 14: trying to do search function so whatever input string will return something from menu
+
+questions: how to do ANY thing related? like 'contact' returns contact page or something
+
+
+	
+=end
