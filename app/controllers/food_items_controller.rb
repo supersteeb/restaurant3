@@ -1,10 +1,11 @@
 class FoodItemsController < ApplicationController
   before_action :set_food_item, only: [:show, :edit, :update, :destroy]
+  helper_method :sort_column, :sort_direction
 
   # GET /food_items
   # GET /food_items.json
   def index
-    @food_items = FoodItem.all
+    @food_items = FoodItem.order(sort_column + " " + sort_direction)
 
     if params[:search]
       redirect_to menu_path
@@ -75,5 +76,13 @@ class FoodItemsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def food_item_params
       params.require(:food_item).permit(:name, :description, :price, :image_url, :section_id)
+    end
+
+    def sort_column
+      FoodItem.column_names.include?(params[:sort]) ? params[:sort] : "name"
+    end
+
+    def sort_direction
+      %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
     end
 end
