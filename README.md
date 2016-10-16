@@ -55,8 +55,10 @@ The following **known issues**:
 * List bugs or things that don't work yet
 
 - the order count next to the food item doesn't update
-- doesn't increase quantity of redundant food item names
+- doesn't increase quantity of redundant food item names (as in, consolidate them onto one line on the table view for the order check out)
 - does not yet have cuisine
+- one video tutorial on doing Order and then it increasess number of order (order count) next to food item, and then the latest video on checking out and viewing cart and adding everything... I have the 2nd functionality. 
+- this is a cool little video thing: http://railscasts.com/episodes/228-sortable-table-columns?autoplay=true
 
 ## Video Walkthrough
 
