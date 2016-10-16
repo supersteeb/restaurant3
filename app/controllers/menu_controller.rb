@@ -22,5 +22,7 @@ class MenuController < ApplicationController
       @food_items = @food_items.order("#{params[:sort_column]} #{params[:sort_direction]}")
     end
 
+    @current_order = Order.last
+
   end
 end

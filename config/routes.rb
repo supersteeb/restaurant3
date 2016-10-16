@@ -1,14 +1,21 @@
 Rails.application.routes.draw do
+
+  get 'checkout/index'
+  post 'checkout/confirm'
+
+  get 'checkout' => 'checkout#index'
+
 	resources :order_food_items
+	resources :food_items 
 
   # /food_items => display all food items
   # /food_items/123 => display food item with id 123
   # /food_items/new => create a new food item
   
-  resources :food_items do
+#  resources :food_items do
 	  # food_items/:food_item_id/orders/new
-	  resources :orders
-	end
+#	  resources :orders
+#	end
 
 	get 'menu' => 'menu#index'
 	get 'contact_us' => 'welcome#contact_us'

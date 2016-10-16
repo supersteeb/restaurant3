@@ -1,6 +1,9 @@
 class OrdersController < ApplicationController
 	def new
 		@food_item = FoodItem.find params[:food_item_id]
+		@user = current_user
+		@cart = current_cart	
+		@amount = @cart.total_price
 	end
 
 	def create
@@ -17,6 +20,10 @@ class OrdersController < ApplicationController
 			render 'new'
 		end
 
+	end
+
+	def show
+		@order = current_order
 	end
 
 	private
