@@ -8,7 +8,13 @@
 
 #from vtoan
 
-Order.create(name: "Alecks", phone: "312342", address: "123 Fake Street")
+Section.create(name: "Breakfast")
+
+FoodItem.create(name: "Banh Mi", description: "Vietnamese sandwich with meat", price: 20000.0, section_id: 1)
+
+Order.create(name: "Alecks", phone: "312342", address: "123 Fake Street", food_item_id: 1)
+
+
 
 =begin
 breakfast = Section.create(name: 'Breakfast', count: 0)
