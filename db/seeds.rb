@@ -9,13 +9,18 @@
 #from vtoan
 
 Section.create(name: "Breakfast")
-lunch = Section.create(name: 'Lunch', count: 0)
-dinner = Section.create(name: 'Dinner', count: 0)
-drinks = Section.create(name: 'Drinks', count: 0)
+Section.create(name: "Lunch")
+Section.create(name: "Dinner")
+Section.create(name: "Drinks")
 
 Cuisine.create(name: "Vietnamese")
+Cuisine.create(name: "Japanese")
+Cuisine.create(name: "Thai")
 
 FoodItem.create(name: "Banh Mi", description: "Vietnamese sandwich with meat", price: 20000.0, section_id: 1)
+FoodItem.create(name: "Banh Canh", description: "Vietnamese noodle dish", price: 25000.0, section_id: 2)
+FoodItem.create(name: "Ca phe da", description: "Iced coffee", price: 12000.0, section_id: 4)
+FoodItem.create(name: "Bot chien", description: "fried pancake", price: 25000, section_id: 3)
 
 Order.create(name: "Alecks", phone: "312342", address: "123 Fake Street", food_item_id: 1)
 
