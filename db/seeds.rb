@@ -9,6 +9,9 @@
 #from vtoan
 
 Section.create(name: "Breakfast")
+lunch = Section.create(name: 'Lunch', count: 0)
+dinner = Section.create(name: 'Dinner', count: 0)
+drinks = Section.create(name: 'Drinks', count: 0)
 
 Cuisine.create(name: "Vietnamese")
 

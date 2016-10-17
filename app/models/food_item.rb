@@ -1,5 +1,5 @@
 class FoodItem < ApplicationRecord
-	has_many :orders, dependent: :destroy
+	has_many :orders, dependent: :destroy  #has_many orders, through: food_item
 
   belongs_to :section
   belongs_to :cuisine
