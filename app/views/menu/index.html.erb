@@ -3,8 +3,18 @@
 <ul class="nav nav-pills">
 	<% Section.all.each do |section| %>
 	  <li class="nav-item">
-
+ 
 	    <%= link_to section.name, menu_path(section: section.name), class: "nav-link #{'active' if params[:section] == section.name}" %>
+
+	  </li>
+  <% end %>
+</ul>
+
+<ul class="nav nav-pills">
+	<% Cuisine.all.each do |cuisine| %>
+	  <li class="nav-item">
+ 
+	    <%= link_to cuisine.name, menu_path(cuisine: cuisine.name), class: "nav-link #{'active' if params[:cuisine] == cuisine.name}" %>
 
 	  </li>
   <% end %>
@@ -16,6 +26,9 @@
 	<div class="form-inline">
 		<%= select_tag :sort_column, options_for_select([['Name', 'name'],['Price', 'price']]), class: 'form-control' %>
 		<%= select_tag :sort_direction, options_for_select([['Ascending', 'asc'], ['Descending', 'desc']]), class: "form-control" %>
+		<% Cuisine.all.each do |cuisine| %>
+			<%= select_tag :cuisine, options_for_select(cuisine.name), class: 'form-control' %>
+			<% end %>
 		<%= submit_tag "Sort", class: "btn btn-secondary" %>
 </div>
 	<% end %>

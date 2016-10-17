@@ -7,7 +7,11 @@ class MenuController < ApplicationController
 #      if params[:search]
  #       @food_items = @section.food_items.order(params[:sort]) if @section.present?
   #    end
-
+    elsif params[:cuisine].present?
+      @cuisine = Cuisine.where(name: params[:cuisine]).first
+      
+      @food_items = @cuisine.food_items if @cuisine.present?
+    
     elsif params[:search]
       @food_items = FoodItem.search(params[:search])
 

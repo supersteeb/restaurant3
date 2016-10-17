@@ -26,6 +26,12 @@
     <strong>Section:</strong>
     <%= @food_item.section.name %>
   </p>
+
+    <p>
+    <strong>Cuisine:</strong>
+    <%= @food_item.cuisine.name %>
+  </p>
+  
   </div> 
   <%= form_for OrderFoodItem.new do |f| %>
   <div class="form-inline">
