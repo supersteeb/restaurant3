@@ -60,6 +60,13 @@ The following **known issues**:
 - one video tutorial on doing Order and then it increasess number of order (order count) next to food item, and then the latest video on checking out and viewing cart and adding everything... I have the 2nd functionality. 
 - this is a cool little video thing: http://railscasts.com/episodes/228-sortable-table-columns?autoplay=true
 
+- FOR HEROKU: 
+so how do I 'generate_defaults' onto my app for the site? does it work like seed defaults in the rails console? excpet i put it in seed and then it be like" 
+
+heroku run rake db:seed? 
+
+Im guessing I'd do that. 
+
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:

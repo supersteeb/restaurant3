@@ -7,4 +7,9 @@ class Cuisine < ApplicationRecord
 			Cuisine.find_or_create_by(name: name) #if can't find then create
 		end
 	end
+
+	def name
+   read_attribute(:name) || "Surprise Food"
+	end
+
 end

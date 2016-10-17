@@ -4,6 +4,14 @@ class FoodItem < ApplicationRecord
   belongs_to :section
   belongs_to :cuisine
 
+  def cuisine_name
+    if cuisine
+      cuisine.name
+    else
+      "Fusion!!!"
+    end
+  end
+
   def image_url_or_default
   	if image_url.present?
   		image_url

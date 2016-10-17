@@ -1,0 +1,6 @@
+
+# in controller... hierarchy of actions... from menu#section or menu#section(sort_by)
+# ?sort_by=[Alphabetical, Price low to high, Price high to low]
+if params[:sort_by]
+	@sort_by = FoodItem.where(name: params[:sort_by]).first
+end
